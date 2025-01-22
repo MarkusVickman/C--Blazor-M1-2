@@ -1,41 +1,83 @@
 @page "/converter"
 
-@{
-    double inputMeter = 0;
-    double inputFeet = 0;
-    double meter = 0;
-    double feet = 0;
-}
+
+
 
 <PageTitle>Home</PageTitle>
 
 <h1>Enhetskonvertering</h1>
+<div class="form-container">
+    <h2>Meter till Fot</h2>
+    <label for="meter">Meter</label>
+    <input type="number" id="meter" @bind="inputMeter">
 
-<h2>Meter till Fot</h2>
-<label for="meter">Meter</label>
-<input type="number" id="meter" @bind="inputMeter">
+    <button @onclick="ConvertToFeet">Konvertera</button>
+    <p>@outputFeet</p>
 
-<button @onclick="ConvertToFeet">Konvertera</button>
-<p>@feet</p>
+    <h2>Fot till Meter</h2>
+    <label for="feet">Fot</label>
+    <input type="number" id="feet" @bind="inputFeet">
 
+    <button @onclick="ConvertToMeter">Konvertera</button>
+    <p>@outputMeter</p>
+</div>
 
-<h2>Fot till Meter</h2>
-<label for="feet">Fot</label>
-<input type="number" id="feet" @bind="inputFeet">
+<div class="form-container">
+    <h2>Kilometer i timmen till Miles i timmen</h2>
+    <label for="meter">Meter</label>
+    <input type="number" id="meter" @bind="inputKPH">
 
-<button @onclick="ConvertToMeter">Konvertera</button>
-<p>@meter</p>
+    <button @onclick="ConvertToMPH">Konvertera</button>
+    <p>@outputMPH</p>
 
-@{
+    <h2>Miles i timmen till Kilometer i timmen</h2>
+    <label for="feet">Fot</label>
+    <input type="number" id="feet" @bind="inputMPH">
+
+    <button @onclick="ConvertToKPH">Konvertera</button>
+    <p>@outputKPH km/h</p>
+</div>
+
+@code {
+
+    private double? inputMeter { get; set; }
+    private double? inputFeet { get; set; }
+    private double? outputMeter { get; set; }
+    private double? outputFeet { get; set; }
+
 
     void ConvertToFeet()
     {
-        feet = (double)(inputMeter * 3.28084);
+        Console.WriteLine(inputMeter);
+        outputFeet = Math.Round((double)(inputMeter * 3.28084), 2);
+        Console.WriteLine(outputFeet);
     }
 
     void ConvertToMeter()
     {
-        meter = (double)(inputFeet / 3.28084);
+        Console.WriteLine(inputFeet);
+        outputMeter = Math.Round((double)(inputFeet / 3.28084), 2);
+        Console.WriteLine(outputMeter);
+    }
+
+}
+
+@code {
+
+    private int? inputKPH { get; set; }
+    private int? inputMPH { get; set; }
+    private int? outputKPH { get; set; }
+    private int? outputMPH { get; set; }
+
+
+    void ConvertToMPH()
+    {
+        outputMPH = (int)(inputKPH * 0.621371);
+    }
+
+    void ConvertToKPH()
+    {
+        outputKPH = (int)(inputMPH * 1.60934);
     }
 
 }
