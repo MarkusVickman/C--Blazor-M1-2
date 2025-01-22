@@ -1,0 +1,39 @@
+﻿@code {
+    private string navBarClass = "display-inlineblock-default";
+    private string menuOpen = "display-none-default";
+    private string menuClose = "display-none-default";
+    private void ToggleNavMenu()
+    {
+        if (navBarClass == "display-inlineblock-default")
+        {
+            navBarClass = "display-block";
+            menuOpen = "display-none";
+            menuClose = "display-block";
+        }
+        else
+        {
+            navBarClass = "display-inlineblock-default";
+            menuOpen = "display-none-default";
+            menuClose = "display-none-default";
+        }
+    }
+}
+
+
+<button id="menu-open-btn" class="@menuOpen" @onclick="ToggleNavMenu">Meny</button>
+<nav id="navbar" class="@navBarClass">
+    <div class="nav-and-button">
+        <button id="menu-close" class="@menuClose" @onclick="ToggleNavMenu">Stäng Meny</button>
+        <ul class="">
+            <li class="">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Start</NavLink>
+            </li>
+            <li class="">
+                <NavLink class="nav-link" href="converter" Match="NavLinkMatch.All">Konvertering</NavLink>
+            </li>
+            <li class="">
+                <NavLink class="nav-link" href="json" Match="NavLinkMatch.All">JSON</NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>

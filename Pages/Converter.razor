@@ -1,0 +1,41 @@
+@page "/converter"
+
+@{
+    double inputMeter = 0;
+    double inputFeet = 0;
+    double meter = 0;
+    double feet = 0;
+}
+
+<PageTitle>Home</PageTitle>
+
+<h1>Enhetskonvertering</h1>
+
+<h2>Meter till Fot</h2>
+<label for="meter">Meter</label>
+<input type="number" id="meter" @bind="inputMeter">
+
+<button @onclick="ConvertToFeet">Konvertera</button>
+<p>@feet</p>
+
+
+<h2>Fot till Meter</h2>
+<label for="feet">Fot</label>
+<input type="number" id="feet" @bind="inputFeet">
+
+<button @onclick="ConvertToMeter">Konvertera</button>
+<p>@meter</p>
+
+@{
+
+    void ConvertToFeet()
+    {
+        feet = (double)(inputMeter * 3.28084);
+    }
+
+    void ConvertToMeter()
+    {
+        meter = (double)(inputFeet / 3.28084);
+    }
+
+}

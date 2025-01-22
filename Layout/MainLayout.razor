@@ -1,0 +1,28 @@
+﻿@inherits LayoutComponentBase
+
+
+    <div class="page-container">
+        <div class="page-container-without-footer">
+            <header>
+                <div class="logo-container">
+                    <NavLink class="" href=""><img src="/logo.png"
+                            alt="Logotyp av texten MV" class="logo"></NavLink>
+                </div>
+                <div>
+                    <p id="date" class="date_div">Dagens datum är: </p>
+                </div>                
+            </header>
+
+            <div class="flex">
+                <NavMenu />
+                <main role="main" class="main">
+                    @Body
+                </main>
+
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Av Markus Vickman - Kontakta mig via e-post - <a
+                    href="mailto:mavi2302@student.miun.se">mavi2302@student.miun.se</a></p>
+        </footer>
+    </div>
