@@ -1,5 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
+@{
+    var date = DateTime.Now.ToShortDateString();
+}
 
     <div class="page-container">
         <div class="page-container-without-footer">
@@ -9,7 +12,7 @@
                             alt="Logotyp av texten MV" class="logo"></NavLink>
                 </div>
                 <div>
-                    <p id="date" class="date_div">Dagens datum är: </p>
+                    <p id="date" class="date_div">Dagens datum är: @date</p>
                 </div>                
             </header>
 

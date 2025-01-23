@@ -1,7 +1,50 @@
 @page "/json"
+@inject HttpClient Http
 
 <PageTitle>Home</PageTitle>
 
 <h1>JSON</h1>
 
-Welcome to your new app.
+
+
+@if (discs == null)
+{
+    <p>Laddar....</p>
+}
+else
+{
+    <h2>Discgolfdiscar</h2>
+    @foreach (var disc in discs)
+    {
+        <div class="api-div">
+            <h3>@disc.Brand</h3>
+            <p><b>Model:</b> @disc.Model</p>
+            <p><b>Version:</b> @disc.Version</p>
+            <p><b>Pris:</b> @disc.Price</p>
+        </div>
+
+    }
+
+}
+
+@code {
+
+    //Disc-array
+    private Discs[]? discs;
+
+    //Http-anrop
+    protected override async Task OnInitializedAsync()
+    {
+        discs = await Http.GetFromJsonAsync<Discs[]>("https://dg-gross-1050979898493.europe-north1.run.app/disc");
+    }
+
+
+
+    public class Discs
+    {
+        public string? Brand { set; get; }
+        public string? Model { set; get; }
+        public string? Version { set; get; }
+        public int? Price { set; get; }
+    }
+}

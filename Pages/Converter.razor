@@ -13,7 +13,8 @@
 
     <button @onclick="ConvertToFeet">Konvertera</button>
     <p>@outputFeet</p>
-
+</div>
+<div class="form-container">
     <h2>Fot till Meter</h2>
     <label for="feet">Fot</label>
     <input type="number" id="feet" @bind="inputFeet">
@@ -29,55 +30,89 @@
 
     <button @onclick="ConvertToMPH">Konvertera</button>
     <p>@outputMPH</p>
-
+</div>
+<div class="form-container">
     <h2>Miles i timmen till Kilometer i timmen</h2>
     <label for="feet">Fot</label>
     <input type="number" id="feet" @bind="inputMPH">
 
     <button @onclick="ConvertToKPH">Konvertera</button>
-    <p>@outputKPH km/h</p>
+    <p>@outputKPH</p>
 </div>
 
 @code {
 
     private double? inputMeter { get; set; }
     private double? inputFeet { get; set; }
-    private double? outputMeter { get; set; }
-    private double? outputFeet { get; set; }
+    private string? outputMeter { get; set; }
+    private string? outputFeet { get; set; }
 
 
     void ConvertToFeet()
     {
-        Console.WriteLine(inputMeter);
-        outputFeet = Math.Round((double)(inputMeter * 3.28084), 2);
-        Console.WriteLine(outputFeet);
+        if (inputMeter.HasValue && inputMeter.Value != 0)
+        {
+            double temp = Math.Round((double)(inputMeter * 3.28084), 2);
+            outputFeet = $"{inputMeter} meter = {temp.ToString()} fot";
+        }
+        else
+        {
+            outputFeet = "Skriv in en siffra som inte är 0";
+        }
+
     }
 
     void ConvertToMeter()
     {
-        Console.WriteLine(inputFeet);
-        outputMeter = Math.Round((double)(inputFeet / 3.28084), 2);
-        Console.WriteLine(outputMeter);
+        if (inputFeet.HasValue && inputFeet.Value != 0)
+        {
+
+            double temp = Math.Round((double)(inputFeet / 3.28084), 2);
+            outputMeter = $"{inputFeet} fot = {temp.ToString()} meter";
+        }
+
+        else
+        {
+            outputMeter = "Skriv in en siffra som inte är 0";
+        }
     }
 
 }
 
 @code {
 
-    private int? inputKPH { get; set; }
-    private int? inputMPH { get; set; }
-    private int? outputKPH { get; set; }
-    private int? outputMPH { get; set; }
+    private double? inputKPH { get; set; }
+    private double? inputMPH { get; set; }
+    private string? outputKPH { get; set; }
+    private string? outputMPH { get; set; }
 
 
     void ConvertToMPH()
     {
-        outputMPH = (int)(inputKPH * 0.621371);
+        if (inputKPH.HasValue && inputKPH.Value != 0)
+        {
+            double temp = (inputKPH.Value * 0.621371);
+            int tempRounded = (int)Math.Round(temp);
+            outputMPH = $"{inputKPH} km/h = {tempRounded.ToString()} mph";
+        }
+        else
+        {
+            outputMPH = "Skriv in en siffra som inte är 0";
+        }
     }
 
     void ConvertToKPH()
     {
-        outputKPH = (int)(inputMPH * 1.60934);
+        if (inputMPH.HasValue && inputMPH.Value != 0)
+        {
+            double temp = (inputMPH.Value * 1.60934);
+            int tempRounded = (int)Math.Round(temp);
+            outputKPH = $"{inputMPH} mph = {tempRounded.ToString()} km/h";
+        }
+        else
+        {
+            outputKPH = "Skriv in en siffra som inte är 0";
+        }
     }
 
 }

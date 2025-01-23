@@ -17,6 +17,13 @@
             menuClose = "display-none-default";
         }
     }
+
+    private void MenuDefault()
+    {
+        navBarClass = "display-inlineblock-default";
+        menuOpen = "display-none-default";
+        menuClose = "display-none-default";
+    }
 }
 
 
@@ -26,13 +33,14 @@
         <button id="menu-close" class="@menuClose" @onclick="ToggleNavMenu">Stäng Meny</button>
         <ul class="">
             <li class="">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Start</NavLink>
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All" @onclick="MenuDefault">Start</NavLink>
             </li>
             <li class="">
-                <NavLink class="nav-link" href="converter" Match="NavLinkMatch.All">Konvertering</NavLink>
+                <NavLink class="nav-link" href="converter" Match="NavLinkMatch.All" @onclick="MenuDefault">Konvertering
+                </NavLink>
             </li>
             <li class="">
-                <NavLink class="nav-link" href="json" Match="NavLinkMatch.All">JSON</NavLink>
+                <NavLink class="nav-link" href="json" Match="NavLinkMatch.All" @onclick="MenuDefault">JSON</NavLink>
             </li>
         </ul>
     </div>
