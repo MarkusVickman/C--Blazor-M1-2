@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
 @{
+    //Sparar datum avkortat till en var
     var date = DateTime.Now.ToShortDateString();
 }
 
@@ -16,6 +17,7 @@
                 </div>                
             </header>
 
+            <!-- Menyn visas i flex sida vid sida av main -->
             <div class="flex">
                 <NavMenu />
                 <main role="main" class="main">

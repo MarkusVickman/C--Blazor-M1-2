@@ -5,8 +5,7 @@
 
 <h1>JSON</h1>
 
-
-
+<!-- skriver ut divar med Discgolfdiscar dynamiskt från Http-anrop -->
 @if (discs == null)
 {
     <p>Laddar....</p>
@@ -22,9 +21,7 @@ else
             <p><b>Version:</b> @disc.Version</p>
             <p><b>Pris:</b> @disc.Price</p>
         </div>
-
     }
-
 }
 
 @code {
@@ -32,16 +29,15 @@ else
     //Disc-array
     private Discs[]? discs;
 
-    //Http-anrop
+    //Http-anrop som lagrar informationen i Discs-arretey enligt class Discs
     protected override async Task OnInitializedAsync()
     {
         discs = await Http.GetFromJsonAsync<Discs[]>("https://dg-gross-1050979898493.europe-north1.run.app/disc");
     }
 
-
-
     public class Discs
     {
+        //Setter och getter för den informationen jag valde att ta med från api-anropet. Namnen verkar vara oberoende av stor eller liten bokstav.
         public string? Brand { set; get; }
         public string? Model { set; get; }
         public string? Version { set; get; }

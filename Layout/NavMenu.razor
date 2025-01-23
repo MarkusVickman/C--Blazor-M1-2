@@ -2,6 +2,8 @@
     private string navBarClass = "display-inlineblock-default";
     private string menuOpen = "display-none-default";
     private string menuClose = "display-none-default";
+
+    //Metod för att ändra visningsläge på menyn med förberedda CSS-klasser
     private void ToggleNavMenu()
     {
         if (navBarClass == "display-inlineblock-default")
@@ -18,6 +20,7 @@
         }
     }
 
+    //Metod för att ändra visningsläge på menyn med förberedda CSS-klasser när en länk iktiveras
     private void MenuDefault()
     {
         navBarClass = "display-inlineblock-default";
@@ -26,7 +29,7 @@
     }
 }
 
-
+<!-- Huvud menyn -->
 <button id="menu-open-btn" class="@menuOpen" @onclick="ToggleNavMenu">Meny</button>
 <nav id="navbar" class="@navBarClass">
     <div class="nav-and-button">

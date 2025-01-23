@@ -1,10 +1,8 @@
 @page "/converter"
 
-
-
-
 <PageTitle>Home</PageTitle>
 
+<!-- fyra stycken inputs med knappar för enhetsomvandling -->
 <h1>Enhetskonvertering</h1>
 <div class="form-container">
     <h2>Meter till Fot</h2>
@@ -41,13 +39,13 @@
 </div>
 
 @code {
-
+    //Getter och setter för variabler för in och ut data till skärm
     private double? inputMeter { get; set; }
     private double? inputFeet { get; set; }
     private string? outputMeter { get; set; }
     private string? outputFeet { get; set; }
 
-
+    //Metod som konverterar till fot. Kontrollerar inmatat värde också.
     void ConvertToFeet()
     {
         if (inputMeter.HasValue && inputMeter.Value != 0)
@@ -59,9 +57,9 @@
         {
             outputFeet = "Skriv in en siffra som inte är 0";
         }
-
     }
 
+    //Metod som konverterar till meter. Kontrollerar inmatat värde också.
     void ConvertToMeter()
     {
         if (inputFeet.HasValue && inputFeet.Value != 0)
@@ -76,17 +74,17 @@
             outputMeter = "Skriv in en siffra som inte är 0";
         }
     }
-
 }
 
 @code {
 
+    //Getter och setter för variabler för in och ut data till skärm
     private double? inputKPH { get; set; }
     private double? inputMPH { get; set; }
     private string? outputKPH { get; set; }
     private string? outputMPH { get; set; }
 
-
+    //Metod som konverterar till MPH. Kontrollerar inmatat värde också.
     void ConvertToMPH()
     {
         if (inputKPH.HasValue && inputKPH.Value != 0)
@@ -101,6 +99,7 @@
         }
     }
 
+    //Metod som konverterar till KMH. Kontrollerar inmatat värde också.
     void ConvertToKPH()
     {
         if (inputMPH.HasValue && inputMPH.Value != 0)
@@ -114,5 +113,4 @@
             outputKPH = "Skriv in en siffra som inte är 0";
         }
     }
-
 }
