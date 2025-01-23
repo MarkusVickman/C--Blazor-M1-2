@@ -1,6 +1,7 @@
 {
-  "name": "moment1-2test",
-  "short_name": "moment1-2test",
+  "name": "Min första BlazorAPP",
+  "short_name": "BlazorAPP",
+  "description": "Min första BlazorAPP",
   "id": "./",
   "start_url": "./",
   "display": "standalone",
@@ -9,7 +10,7 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
